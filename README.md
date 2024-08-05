@@ -2,7 +2,6 @@
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/externref/peanuts/main/assets/peanut.png" height=150 width=150><br><br>
-<br><br>
 db for people gone nuts >.<
 </p>
 
