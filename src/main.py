@@ -29,6 +29,12 @@ class Instance:
             for fname in os.listdir(f"data/databases/{db_name}/schemas")
         }
 
+    def drop_schema(self, name: str) -> None:
+        assert self.schemas.get(name), f"No schema named {name}"
+        self.schemas.pop(name)
+        os.remove(f"data/database/{self.database_name}/schemas/{name}.pnuts.json")
+        os.rmdir(f"data/database/{self.database_name}/data/{name}")
+
     def add_schema(self, name: str, data: str) -> None:
         schema = Schema(self.database_name, name, json.loads(data))
         self.schemas[name] = schema.create()

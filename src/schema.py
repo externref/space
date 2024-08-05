@@ -94,4 +94,10 @@ class Schema:
         with open(
             f"data/databases/{self.database}/data/{self.name}/{id}.pnuts.json", "w"
         ) as datafile:
-            datafile.write(json.dumps(d, indent=4))
+            json.dump(d, datafile, indent=4)
+
+    def read(self, id: str) -> dict[str, typing.Any]:
+        with open(
+            f"data/databases/{self.database}/data/{self.name}/{id}.pnuts.json"
+        ) as file:
+            return json.load(file)
