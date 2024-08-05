@@ -1,6 +1,4 @@
-import sys
+from . import main
 
-from peanuts.session import Session
-
-session = Session(sys.argv[1])
-session.run_session()
+if __name__ == "__main__":
+    main()

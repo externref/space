@@ -15,6 +15,9 @@ fishhook = "^0.3.2"
 ruff = "^0.5.6"
 isort = "^5.13.2"
 
+[tool.poetry.scripts]
+peanuts = 'peanuts:main'
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
