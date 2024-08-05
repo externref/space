@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "peanuts"
+version = "0.0.1a"
+description = "A file based database system."
+authors = ["externref <shiva02939@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+attrs = "^24.1.0"
+fishhook = "^0.3.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.6"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
