@@ -20,15 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import sys
-
-from peanuts.session import Session
-
-
-def main() -> None:
-    session = Session(sys.argv[1])
-    if len(sys.argv) > 2 and sys.argv[2] in ["--compile", "-c"]:
-        assert len(sys.argv) == 4
-        session.run_command(sys.argv[3].split()[0], sys.argv[3].split()[1:])
-        return
-    session.run_session()
+class DataTypeConflictException(Exception):
+    def __init__(self, exp: str, got: str) -> None:
+        super().__init__(f"Expected {exp}, got {got}")
