@@ -15,24 +15,6 @@ A minimalist JSON based database for people who love peanuts :3 ( or not )
 > [!WARNING]  
 > This database system is just a raw idea and prone to unexpected behaviour. 
 
-![](./assets/anya.png)
-
-## database structure
-
-![](./assets/structure.png)
-
-JSON data is saved under folders with IDs as filenames linked to schemas.
-
-```
-└── data/databases
-    └── database_name
-        ├── data
-        │   └── schema_name
-        │       └── entry_id.pnuts.json
-        └── schemas
-            └── schema_name.pnuts.json
-```
-
 ## examples 
 
 ### connecting
@@ -81,4 +63,20 @@ age (type: SchemaTypeToPyT.INTEGER): 19
 │ age  │ 19      │
 ╰──────┴─────────╯
 ```
+
+## database structure
+
+JSON data is saved under folders with IDs as filenames linked to schemas.
+
+```
+└── data/databases
+    └── database_name
+        ├── data
+        │   └── schema_name
+        │       └── entry_id.pnuts.json
+        └── schemas
+            └── schema_name.pnuts.json
+```
+![](./assets/structure.png)
+
 
