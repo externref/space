@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import readline  # type: ignore # noqa: F401
+
 import tabulate
 from rich.console import Console
 
@@ -15,6 +17,29 @@ class Session:
         self.dbname = dbname
         self.app = Instance(dbname)
 
+    def run_command(self, action: str, restargs: list[str]) -> None:
+        if action == "!add_schema":
+            self.app.add_schema(restargs[0], " ".join(restargs[1:]))
+        elif action == "!drop_schema":
+            self.app.drop_schema(restargs[0])
+        elif action == "insert":
+            assert self.app.schemas.get(
+                restargs[0]
+            ), f"No schema named {restargs[0]} found"
+            self.app.schemas[restargs[0]].write(restargs[1], " ".join(restargs[2:]))
+        elif action == "select":
+            assert self.app.schemas.get(
+                restargs[0]
+            ), f"No schema named {restargs[0]} found"
+            data = self.app.schemas[restargs[0]].read(restargs[1])
+            print(
+                tabulate.tabulate(
+                    ([k, v] for k, v in data.items()), tablefmt="rounded_grid"
+                )
+            )
+        elif action in ["!q", "!quit", ":q", ":quit"]:
+            raise KeyboardInterrupt
+
     def run_session(self) -> None:
         try:
             self.console.log(
@@ -23,26 +48,7 @@ class Session:
             while True:
                 cmd = self.console.input("[bold][green]#[/green][/bold] ")
                 vals = cmd.split(" ")
-                if vals[0] == "!add_schema":
-                    self.app.add_schema(vals[1], " ".join(vals[2:]))
-                elif vals[0] == "!drop_schema":
-                    self.app.drop_schema(vals[1])
-                elif vals[0] == "insert":
-                    assert self.app.schemas.get(
-                        vals[1]
-                    ), f"No schema named {vals[1]} found"
-                    self.app.schemas[vals[1]].write(vals[2], " ".join(vals[3:]))
-                elif vals[0] == "select":
-                    assert self.app.schemas.get(
-                        vals[1]
-                    ), f"No schema named {vals[1]} found"
-                    data = self.app.schemas[vals[1]].read(vals[2])
-                    print(
-                        tabulate.tabulate(
-                            ([k, v] for k, v in data.items()), tablefmt="rounded_grid"
-                        )
-                    )
-                elif vals[0] in ["!q", "!quit", ":q", ":quit"]:
-                    raise KeyboardInterrupt
+                self.run_command(vals[0], vals[1:])
+
         except KeyboardInterrupt:
             self.console.log("[green]Thanks for using [bold]peanuts 🥜[/bold][/green]")
