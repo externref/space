@@ -77,6 +77,6 @@ JSON data is saved under folders with IDs as filenames linked to schemas.
         └── schemas
             └── schema_name.pnuts.json
 ```
-![](./assets/structure.png)
+![](./docs/assets/structure.png)
 
 
