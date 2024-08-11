@@ -35,10 +35,7 @@ class Instance:
 
     def __init__(self, db_name: str) -> None:
         self.database_name = db_name
-        if not (
-            (dpath := pathlib.Path(f"data/databases/{db_name}")).exists()
-            and dpath.is_dir()
-        ):
+        if not ((dpath := pathlib.Path(f"data/databases/{db_name}")).exists() and dpath.is_dir()):
             os.mkdir(f"data/databases/{db_name}")
             os.mkdir(f"data/databases/{self.database_name}/data/")
             os.mkdir(f"data/databases/{db_name}/schemas")
@@ -52,10 +49,13 @@ class Instance:
         }
 
     def drop_schema(self, name: str) -> None:
-        assert self.schemas.get(name), f"No schema named {name}"
+        if not self.schemas.get(name):
+            Schema.console.print(f"[red]No schema named {name}")
+            return
         self.schemas.pop(name)
-        os.remove(f"data/database/{self.database_name}/schemas/{name}.pnuts.json")
-        os.rmdir(f"data/database/{self.database_name}/data/{name}")
+        os.remove(f"data/databases/{self.database_name}/schemas/{name}.pnuts.json")
+        os.rmdir(f"data/databases/{self.database_name}/data/{name}")
+        Schema.console.print(f"Schema {name} dropped.")
 
     def add_schema(self, name: str, data: str) -> None:
         schema = Schema(self.database_name, name, json.loads(data))

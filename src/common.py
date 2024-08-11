@@ -20,6 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
+def display_syntax(cmd: str, valid: str) -> str:
+    return f"[red]Wrong usage of command {cmd}\n[bold]Correct Usage (<>: Required, []: Optional):[/bold][/red] [green]{valid}[/green]"
+
+
 class DataTypeConflictException(Exception):
     def __init__(self, exp: str, got: str) -> None:
         super().__init__(f"Expected {exp}, got {got}")
