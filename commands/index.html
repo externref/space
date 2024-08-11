@@ -6,17 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Setting up and getting started with the database">
+        <meta name="description" content="Guide through all the commands available in the database system">
       
       
       
-        <link rel="canonical" href="https://peanuts.externref.tech/getting-started/">
+        <link rel="canonical" href="https://peanuts.externref.tech/commands/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../getting-started/">
       
-      
-        <link rel="next" href="../commands/">
       
       
       <link rel="icon" href="../assets/peanut.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>Getting Started - peanuts</title>
+        <title>Commands - peanuts</title>
       
     
     
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Getting Started - peanuts" >
+        <meta  property="og:title"  content="Commands - peanuts" >
       
-        <meta  property="og:description"  content="Setting up and getting started with the database" >
+        <meta  property="og:description"  content="Guide through all the commands available in the database system" >
       
-        <meta  property="og:image"  content="https://peanuts.externref.tech/assets/images/social/getting-started.png" >
+        <meta  property="og:image"  content="https://peanuts.externref.tech/assets/images/social/commands.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +69,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://peanuts.externref.tech/getting-started/" >
+        <meta  property="og:url"  content="https://peanuts.externref.tech/commands/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Getting Started - peanuts" >
+        <meta  name="twitter:title"  content="Commands - peanuts" >
       
-        <meta  name="twitter:description"  content="Setting up and getting started with the database" >
+        <meta  name="twitter:description"  content="Guide through all the commands available in the database system" >
       
-        <meta  name="twitter:image"  content="https://peanuts.externref.tech/assets/images/social/getting-started.png" >
+        <meta  name="twitter:image"  content="https://peanuts.externref.tech/assets/images/social/commands.png" >
       
     
     
@@ -102,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#requirements" class="md-skip">
+        <a href="#commands" class="md-skip">
           Skip to content
         </a>
       
@@ -137,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Commands
             
           </span>
         </div>
@@ -235,6 +233,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -244,12 +262,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Getting Started
+    Commands
   </span>
   
 
@@ -260,7 +280,7 @@
         
   
   <span class="md-ellipsis">
-    Getting Started
+    Commands
   </span>
   
 
@@ -272,6 +292,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -280,46 +302,97 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#schema-and-core-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
+      Schema and core operations.
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-the-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting up the project
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Database
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Database">
+    <nav class="md-nav" aria-label="Schema and core operations.">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-a-database" class="md-nav__link">
+  <a href="#help" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating A Database
+      !help
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#schema" class="md-nav__link">
+  <a href="#quit" class="md-nav__link">
     <span class="md-ellipsis">
-      Schema
+      !quit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      !create_schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      !drop_schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      !display_schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      !load_cache
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-related-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data related commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data related commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    <span class="md-ellipsis">
+      select
     </span>
   </a>
   
@@ -334,26 +407,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../commands/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Commands
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -375,6 +428,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -383,46 +438,97 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#schema-and-core-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
+      Schema and core operations.
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-the-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting up the project
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Database
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Database">
+    <nav class="md-nav" aria-label="Schema and core operations.">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-a-database" class="md-nav__link">
+  <a href="#help" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating A Database
+      !help
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#schema" class="md-nav__link">
+  <a href="#quit" class="md-nav__link">
     <span class="md-ellipsis">
-      Schema
+      !quit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      !create_schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      !drop_schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      !display_schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      !load_cache
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-related-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data related commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data related commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    <span class="md-ellipsis">
+      select
     </span>
   </a>
   
@@ -448,73 +554,78 @@
                   
 
 
-  <h1>Getting Started</h1>
+<h1 id="commands">Commands</h1>
+<p>Here's a list of all the available commands in the database</p>
+<h2 id="schema-and-core-operations">Schema and core operations.</h2>
+<h3 id="help"><code>!help</code></h3>
+<p>Displays all commands info.</p>
+<h3 id="quit"><code>!quit</code></h3>
+<p>Quits the CLI. Aliases: <code>!q</code>, <code>:q</code>, <code>:quit</code></p>
+<h3 id="create_schema"><code>!create_schema</code></h3>
+<p>Creates a new <a href="../getting-started/#schema">schema</a></p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><span class="err">!crea</span><span class="kc">te</span><span class="err">_schema</span><span class="w"> </span><span class="err">&lt;schema_</span><span class="kc">na</span><span class="err">me&gt;</span><span class="w"> </span><span class="err">&lt;schema_JSON&gt;;</span>
 
-<p>The database is only available as a python package as of now, that can be downloaded from Github.</p>
-<h3 id="requirements">Requirements</h3>
-<ul>
-<li>
-<p><a href="https://www.python.org/">Python 3.8+</a></p>
-<p>Python comes pre-installed in most linux distros. You can install python for mac and windows from the official website. (<a href="https://www.python.org/downloads/windows/"><code>Windows</code></a>, <a href="https://www.python.org/downloads/macos/"><code>macOS</code></a>). Make sure to install pip and add python to path.</p>
-</li>
-<li>
-<p><a href="https://python-poetry.org/">Poetry</a></p>
-<p>Poetry is a python packaging and dependency management tool. <code>peanuts</code> heavily rely on it for the CLI and dependencies. You can install it from PYPI.
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>poetry
-</code></pre></div></p>
-</li>
-<li>
-<p><a href="https://git-scm.com/">Git (optional)</a></p>
-<p>Git can be used to clone the repository to your device directly. Alternatively you can manually download code from github.</p>
-</li>
-</ul>
-<h3 id="setting-up-the-project">Setting up the project</h3>
-<p>Clone the github repository using the git clone command and navigate into the project directory.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/externref/peanuts
-<span class="nb">cd</span><span class="w"> </span>peanuts
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Alternatively you can download the project from Github from <a href="https://codeload.github.com/externref/peanuts/zip/refs/heads/main">here</a> and unzip it to get the same output as <code>git clone</code> if you don't plan to contribute.</p>
-</div>
-<p>To start with the database setup, install all the dependencies using <code>poetry install</code> command and enable the poetry venv using <code>poetry shell</code></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>python<span class="w"> </span>-m<span class="o">]</span><span class="w"> </span>poetry<span class="w"> </span>install
-<span class="o">[</span>python<span class="w"> </span>-m<span class="o">]</span><span class="w"> </span>poetry<span class="w"> </span>shell
-<span class="c1"># you might have to use [python -m] based on your python installation</span>
-</code></pre></div>
-<h2 id="the-database">The Database</h2>
-<p><img alt="" src="../assets/structure.png" /></p>
-<h3 id="creating-a-database">Creating A Database</h3>
-<p>Creating a database is a simple task, you just need to run the CLI with the database name 
-<div class="highlight"><pre><span></span><code>[poetry run] peanuts &lt;database_name&gt;
-</code></pre></div></p>
-<p>If the database does not exist it will be created and connected to, else a new database with that name will be created.</p>
-<h3 id="schema">Schema</h3>
-<p>Schemas defines the strucutre of the data type to save. It acts as an equivalent of a SQL table in this case scenario. This is a sample schema configuration: </p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="c1">// example:</span>
+<span class="err">!crea</span><span class="kc">te</span><span class="err">_schema</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">de</span><span class="kc">nt</span><span class="err">i</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The schema must be defined using a dictionary with name-type mapping, allowed types are:</p>
-<ul>
-<li>
-<p><code>string</code>: For strings</p>
-</li>
-<li>
-<p><code>integer</code>: For integers</p>
-</li>
-<li>
-<p><code>float</code>: For floats</p>
-</li>
-<li>
-<p><code>bool</code>: For booleans</p>
-</li>
-<li>
-<p><code>a_&lt;other type&gt;</code>: For array of above types ( <code>a_string</code>, <code>a_bool</code>, etc...)</p>
-</li>
-</ul>
-<p>You will learn how to create a new database in <a href="../commands/#create_schema">commands</a></p>
+<span class="w">    </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="p">}</span><span class="err">;</span>
+</code></pre></div></p>
+<p align="center">
+    <img src="/assets/examples/create_schema.gif" width=80%>
+</p>
+
+<h3 id="drop_schema"><code>!drop_schema</code></h3>
+<p>Drops an existing schema.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><span class="err">!drop_schema</span><span class="w"> </span><span class="err">&lt;schema_</span><span class="kc">na</span><span class="err">me&gt;;</span>
+
+<span class="c1">// example: </span>
+<span class="err">!drop_schema</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">de</span><span class="kc">nt</span><span class="err">i</span><span class="kc">nf</span><span class="err">o;</span>
+</code></pre></div></p>
+<h3 id="display_schema"><code>!display_schema</code></h3>
+<p>Displays data under an schema.</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><span class="err">!display_schema</span><span class="w"> </span><span class="err">&lt;schema_</span><span class="kc">na</span><span class="err">me&gt;;</span>
+
+<span class="c1">// example: </span>
+<span class="err">!display_schema</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">dei</span><span class="kc">nf</span><span class="err">o;</span>
+</code></pre></div></p>
+<p align="center">
+    <img src="/assets/examples/display_schema.gif" width=80%>
+</p>
+
+<h3 id="load_cache"><code>!load_cache</code></h3>
+<p>Loads all the existing data into cache. This is optional and suggested only when large operations have to be performed.</p>
+<h2 id="data-related-commands">Data related commands</h2>
+<h3 id="insert"><code>insert</code></h3>
+<p>Adds data to an schema with respect to provided ID </p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><span class="err">i</span><span class="kc">nsert</span><span class="w"> </span><span class="err">&lt;schema_</span><span class="kc">na</span><span class="err">me&gt;</span><span class="w"> </span><span class="err">&lt;id&gt;</span><span class="w"> </span><span class="p">[</span><span class="err">da</span><span class="kc">ta</span><span class="err">_JSON</span><span class="p">]</span><span class="err">;</span>
+
+<span class="c1">// example: </span>
+<span class="err">i</span><span class="kc">nsert</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">de</span><span class="kc">nt</span><span class="err">i</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="mi">1</span><span class="err">;</span><span class="w"> </span><span class="c1">// app will ask for further data</span>
+<span class="err">i</span><span class="kc">nsert</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">de</span><span class="kc">nt</span><span class="err">i</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sarthak&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span>
+<span class="p">}</span><span class="err">;</span>
+</code></pre></div></p>
+<p align="center">
+    <img src="/assets/examples/insert.gif" width=80%>
+</p>
+
+<h3 id="select"><code>select</code></h3>
+<p>Fetch data from the cache or the storage</p>
+<p><strong>Syntax</strong>
+<div class="highlight"><pre><span></span><code><span class="err">selec</span><span class="kc">t</span><span class="w"> </span><span class="err">&lt;schema_</span><span class="kc">na</span><span class="err">me&gt;</span><span class="w"> </span><span class="err">&lt;id&gt;;</span>
+
+<span class="c1">// example: </span>
+<span class="err">selec</span><span class="kc">t</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">de</span><span class="kc">nt</span><span class="err">i</span><span class="kc">nf</span><span class="err">o</span><span class="w"> </span><span class="mi">1</span><span class="err">;</span>
+</code></pre></div></p>
+<p align="center">
+    <img src="/assets/examples/select.gif" width=80%>
+</p>
 
 
 
