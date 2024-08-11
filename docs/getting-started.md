@@ -1,3 +1,7 @@
+---
+description: Setting up and getting started with the database
+---
+
 The database is only available as a python package as of now, that can be downloaded from Github.
 
 ### Requirements
@@ -37,6 +41,19 @@ To start with the database setup, install all the dependencies using `poetry ins
 # you might have to use [python -m] based on your python installation
 ```
 
+## The Database
+
+![](assets/structure.png)
+
+### Creating A Database
+
+Creating a database is a simple task, you just need to run the CLI with the database name 
+```
+[poetry run] peanuts <database_name>
+```
+
+If the database does not exist it will be created and connected to, else a new database with that name will be created.
+
 ### Schema
 
 Schemas defines the strucutre of the data type to save. It acts as an equivalent of a SQL table in this case scenario. This is a sample schema configuration: 
@@ -60,21 +77,4 @@ The schema must be defined using a dictionary with name-type mapping, allowed ty
 
 * `a_<other type>`: For array of above types ( `a_string`, `a_bool`, etc...)
 
-### Example
-
-!!! note "Here's a functional example of how easy it is to use the database."
-
-    ```
-    (peanuts-py3.10) sarthak@sarthak:~/peanuts$ peanuts students
-    [01:55:32]  Welcome to peanuts 🥜, Connected to database: students
-    # !add_schema studentinfo { "name": "string", "age": "integer" }
-    # insert studentinfo 1
-    name (type: SchemaTypeToPyT.STRING): sarthak
-    age (type: SchemaTypeToPyT.INTEGER): 19
-    # select studentinfo 1
-    ╭──────┬─────────╮
-    │ name │ sarthak │
-    ├──────┼─────────┤
-    │ age  │ 19      │
-    ╰──────┴─────────╯
-    ```
+You will learn how to create a new database in [commands](commands.md#create_schema)

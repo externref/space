@@ -1,21 +1,26 @@
+---
+description: A minimalist JSON based database for people who love peanuts :3 ( or not )
+---
+
 # peanuts
 
 <p align="center">
 <img src="./assets/anya.png" width="80%" style="border-radius: 2.5%;">
 <br><br>
-<img src="https://img.shields.io/github/license/externref/peanuts?style=flat-square">
-<img src="https://img.shields.io/badge/code%20style-ruff-000000.svg?style=flat-square">
-<img src="https://img.shields.io/badge/%20type_checker-pyright-%231674b1?style=flat-square">
-<img src="https://img.shields.io/github/stars/externref/peanuts?style=flat-square">
-<img src="https://img.shields.io/github/last-commit/externref/peanuts?style=flat-square">
-<img src="https://img.shields.io/pypi/pyversions/peanuts?style=flat-square"><br>
+<img src="https://img.shields.io/github/license/externref/peanuts">
+<img src="https://sloc.xyz/github/externref/peanuts?category=code&style=flat-square">
+<img src="https://img.shields.io/badge/code%20style-ruff-000000.svg">
+<img src="https://img.shields.io/badge/%20type_checker-pyright-%231674b1">
+<img src="https://img.shields.io/github/stars/externref/peanuts">
+<img src="https://img.shields.io/github/last-commit/externref/peanuts">
+<img src="https://img.shields.io/pypi/pyversions/peanuts"><br>
 A minimalist JSON based database for people who love peanuts :3 ( or not )
 </p>
 
 !!! warning
     This database system is just a raw idea and prone to unexpected behaviour. 
 
-[Getting Started](/getting-started){ .md-button .md-button--primary }
+[Getting Started](getting-started.md){ .md-button .md-button--primary }
 
 ## About
 
