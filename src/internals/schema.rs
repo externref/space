@@ -20,9 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-use super::database::Database;
-
-enum DataType {
+#[derive(Clone, Debug)]
+pub enum DataType {
     String,
     Integer,
     Float,
@@ -32,12 +31,13 @@ enum DataType {
     ArrayFloat,
     ArrayBool,
 }
-
-pub(crate) struct Schema {
-    database: Database,
-    name: String,
+#[derive(Clone, Debug)]
+pub struct Schema {
+    pub name: String,
+    pub path: std::path::PathBuf,
+    database_path: std::path::PathBuf,
     raw_configs: std::collections::HashMap<String, String>,
-    configs: std::collections::HashMap<String, DataType>,
+    pub configs: std::collections::HashMap<String, DataType>,
 }
 
 impl Schema {
@@ -92,21 +92,101 @@ impl Schema {
     }
 
     pub fn new(
-        self,
-        database:Database,
+        path: std::path::PathBuf,
+        database_path: std::path::PathBuf,
         name: String,
         raw_configs: std::collections::HashMap<String, String>,
     ) -> Schema {
         let configs = Schema::generate_configs(&raw_configs);
         return Schema {
-            database,
+            path,
+            database_path,
             name,
             raw_configs,
             configs,
         };
     }
+    pub fn validate_input(
+        &self,
+        input: &std::collections::HashMap<String, serde_json::Value>,
+    ) -> bool {
+        for (key, dtype) in &self.configs {
+            let value = input.get(key);
 
-    pub fn create(database: Database, name: String, configs: std::collections::HashMap<String, String> ) -> Schema{
-        todo!()
+            let is_type_correct = match dtype {
+                DataType::String => value.unwrap().is_string(),
+                DataType::Integer => value.unwrap().is_i64(),
+                DataType::Float => value.unwrap().is_f64(),
+                DataType::Bool => value.unwrap().is_boolean(),
+
+                _ => {
+                    let val = value.unwrap();
+                    if !val.is_array() {
+                        return false;
+                    }
+                    let internal_type_correct = match dtype {
+                        DataType::ArrayString => {
+                            for item in val.as_array().unwrap() {
+                                if !item.is_string() {
+                                    return false;
+                                }
+                            }
+                            true
+                        }
+                        DataType::ArrayInteger => {
+                            for item in val.as_array().unwrap() {
+                                if !item.is_i64() {
+                                    println!(" breaks here");
+                                    return false;
+                                }
+                            }
+                            true
+                        }
+                        DataType::ArrayFloat => {
+                            for item in val.as_array().unwrap() {
+                                if !item.is_f64() {
+                                    return false;
+                                }
+                            }
+                            true
+                        }
+                        DataType::ArrayBool => {
+                            for item in val.as_array().unwrap() {
+                                if !item.is_boolean() {
+                                    return false;
+                                }
+                            }
+                            true
+                        }
+                        _ => false,
+                    };
+                    internal_type_correct
+                }
+            };
+            if !is_type_correct {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    pub fn write(&self, id: String, data: std::collections::HashMap<String, serde_json::Value>) {
+        if !self.validate_input(&data) {
+            panic!("invalid data input");
+        }
+        std::fs::write(
+            self.database_path
+                .join(format!("data/{}/{}.space.json", self.name, id)),
+            serde_json::to_string_pretty(&data).unwrap(),
+        )
+        .unwrap();
+    }
+
+    pub fn create(&self) {
+        // add schema files under schemas folder
+        let json_data = serde_json::to_string_pretty(&self.raw_configs).unwrap();
+        std::fs::write(self.path.clone(), json_data).unwrap();
+        // create folder for schema data
+        std::fs::create_dir(self.database_path.join(format!("data/{}", self.name))).unwrap();
     }
 }
