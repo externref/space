@@ -1,5 +1,3 @@
-data/databases/*
-!data/databases/.gitkeep
-__pycache__/
-.cache/
-site/
+# Added by cargo
+
+/target

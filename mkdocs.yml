@@ -1,10 +1,10 @@
-site_name: peanuts
-site_url: https://peanuts.externref.tech
+site_name: space
+site_url: https://space.externref.tech
 
 theme:
   name: material
-  logo: assets/peanut.png
-  favicon: assets/peanut.png
+  logo: assets/space.png
+  favicon: assets/space.png
   palette:
     - scheme: slate
       toggle:
