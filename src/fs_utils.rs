@@ -23,7 +23,7 @@
 /**
 Gets the path as [std::path::PathBuf] of the directory to use for data storage.
 */
-pub fn get_data_save_dir() -> std::path::PathBuf {  
+pub fn get_data_save_dir() -> std::path::PathBuf {
     if cfg!(target_os = "linux") {
         let xdg_dirs = std::env::var("HOME").unwrap();
         return std::path::PathBuf::from(format!(
@@ -31,24 +31,46 @@ pub fn get_data_save_dir() -> std::path::PathBuf {
             xdg_dirs.split(":").next().unwrap().to_owned(),
         ));
     } else if cfg!(target_os = "windows") {
-        let appdata = std::env::var("APPDATA").unwrap();
+        let appdata: String = std::env::var("APPDATA").unwrap();
         return std::path::PathBuf::from(format!("{}/", appdata));
     } else if cfg!(target_os = "macos") {
-        let home = std::env::var("HOME").unwrap();
+        let home: String = std::env::var("HOME").unwrap();
         return std::path::PathBuf::from(format!("{}/Library/Application Support/", home));
     } else {
         return std::path::PathBuf::from(format!("data/database/"));
     }
 }
 
-
-pub fn verify_setup(){
-    let data_dir = get_data_save_dir();
+/**
+Checks all the file system related setups needed for the db to function.
+*/
+pub fn verify_setup(dbname: String) {
+    let mut data_dir = get_data_save_dir();
+    data_dir.push(".space");
+    if !data_dir.exists() {
+        std::fs::create_dir(&data_dir).unwrap();
+    }
+    data_dir.push(dbname);
+    if !data_dir.exists() {
+        println!("{:?}", data_dir);
+        std::fs::create_dir(&data_dir).unwrap();
+    }
+    if !data_dir.join("data").exists() {
+        std::fs::create_dir(&data_dir.join("data")).unwrap();
+    }
+    data_dir.push(".schemas");
+    if !data_dir.exists() {
+        std::fs::create_dir(&data_dir).unwrap();
+    }
 }
-  
 
-pub fn get_database_dir(dbname: String)-> std::path::PathBuf{
+/**
+This is just appending the `.space/<dbname>` to the PathBuf returned by [get_data_save_dir],
+ideally after verifying the setup.
+*/
+pub fn get_database_dir(dbname: String) -> std::path::PathBuf {
     let mut strgdir = get_data_save_dir();
+    strgdir.push(".space");
     strgdir.push(dbname);
     return strgdir;
 }
