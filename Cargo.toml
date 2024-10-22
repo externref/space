@@ -1,10 +1,23 @@
+[workspace]
+members = [
+    "space_cli",
+    "space_lib"
+]
+resolver = "2"
+
+[lib]
+name = "space_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "space_cli"
+path = "src/main.rs"
+
 [package]
 name = "space"
 version = "0.1.0"
-edition = "2021"
+edition = "2021"     
+authors = ["externref <shiva02939@gmail.com>"]
 
 [dependencies]
-clearscreen = "3.0.0"
-color-print = "0.3.6"
-serde = { version = "1.0.208", features = ["derive"]}
-serde_json = "1.0.125"
+serde_json = "1.0.127"

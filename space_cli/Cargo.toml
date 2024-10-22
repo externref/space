@@ -1,0 +1,11 @@
+[package]
+name = "space_cli"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "space"
+path = "src/main.rs"
+
+[dependencies]
+space_lib = { path = "../space_lib" }
